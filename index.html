@@ -8,6 +8,7 @@
 		<meta name="author" content="Tobias Reich">
 
 		<link type="text/css" rel="stylesheet" href="dist/main.css">
+		<link type="text/css" rel="stylesheet" href="dist/zoom.css">
 
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="apple-touch-icon" href="src/images/apple-touch-icon-ipad.png" sizes="120x120">
@@ -93,6 +94,12 @@
 
 			<a class="header__title"></a>
 
+			<a class="button button--zoom-out" id="button_zoom-out" title="Zoom out">
+				<svg class="iconic"><use xlink:href="#zoom-out"></use></svg>
+			</a>
+			<a class="button button--zoom-in" id="button_zoom-in" title="Zoom in">
+				<svg class="iconic"><use xlink:href="#zoom-in"></use></svg>
+			</a>
 			<a class="button button--star" id="button_star" title="Star Photo">
 				<svg class="iconic"><use xlink:href="#star"></use></svg>
 			</a>
@@ -138,7 +145,9 @@
 	</div>
 
 	<!-- JS -->
-	<script async type="text/javascript" src="dist/main.js"></script>
+	<script type="text/javascript" src="dist/main.js"></script>
+	<script async type="text/javascript" src="dist/jquery.panzoom.js"></script>
+	<script async type="text/javascript" src="dist/zoom.js"></script>
 
 	</body>
 </html>
