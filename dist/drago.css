@@ -1,0 +1,118 @@
+body {
+	background-color: #fff;
+}
+
+.content .photo img {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	border: none;
+}
+
+.content .photo {
+	width: 200px;
+	height: 200px;
+	border: 3px solid transparent;
+}
+
+.content .photo .overlay {
+	margin: 0 0 -1px 0;
+}
+
+.content .album.active img, .content .album:hover img, .content .photo.active, .content .photo:hover {
+	border-color: #eabb00;
+}
+
+header.header {
+	-webkit-backdrop-filter: blur(15px);
+	backdrop-filter: blur(15px);
+	background: rgba(255, 255, 255, 0.8);
+	border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+}
+
+header.header.header--view {
+	background: rgba(40,40,40,0.7);
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+header.header.header--view .header__title {
+	color: #fff;
+}
+
+header.header.header--view .iconic {
+	fill: #fff !important;
+}
+
+header.header.header--view .button:hover .iconic {
+	fill: rgba(255,255,255,0.5) !important;
+}
+
+header.header .header__title {
+	color: #000;
+	font-weight: 500;
+}
+
+header.header .iconic {
+	fill: #000 !important;
+}
+header.header .button:hover .iconic {
+	fill: rgba(0,0,0,0.5) !important;
+}
+
+.header__search {
+	background: #fff;
+	color: #333;
+	border: 1px solid #ccc;
+}
+
+.badge {
+	background: #eabb00 !important;
+}
+
+#logo {
+	width: 70%;
+	max-height: 80%;
+	position: fixed;
+	z-index: -1;
+	bottom: -10%;
+	right: -17%;
+	opacity: 0.04;
+	transform: rotate(10deg);
+	-ms-transform: rotate(10deg);
+	-webkit-transform: rotate(10deg);
+}
+
+#imageview .arrow_wrapper a {
+	padding: 10px 40px 50px;
+	background-size: cover;
+}
+
+#multiselect {
+	background-color: rgba(235, 188, 0, .3);
+	border: 1px solid #eabb00;
+}
+
+.sidebar__header {
+	border-top: 1px solid #eabb00;
+}
+
+.basicContext__item:not(.basicContext__item--disabled):hover .basicContext__data {
+	background: linear-gradient(#ead115, #d4ac08);
+	color: rgb(255,255,255);
+	text-shadow: 0px 1px 0px rgba(121, 98, 5, 0.3);
+}
+
+.basicModal input.text:focus {
+	border-bottom-color: #eabb00;
+}
+
+.basicModal input.text.error {
+    border-bottom-color: #d92c34;
+}
+
+.basicModal .select::after {
+	color: #eabb00;
+}
+
+
+.basicModal__button#basicModal__action {
+	color: #eabb00;
+}
