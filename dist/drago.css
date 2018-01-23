@@ -2,6 +2,11 @@ body {
 	background-color: #fff;
 }
 
+.content .album .overlay h1 {
+	text-overflow: clip;
+	white-space: normal;
+}
+
 .content .photo img {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
 	border: none;
