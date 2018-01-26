@@ -10,8 +10,8 @@ contextMenu.add = function(e) {
 		{ title: build.iconic('image') + 'Upload Photo', fn: () => $('#upload_files').click() },
 		{ },
 		{ title: build.iconic('link-intact') + 'Import from Link', fn: upload.start.url },
-		{ title: build.iconic('dropbox', 'ionicons') + 'Import from Dropbox', fn: upload.start.dropbox },
-		{ title: build.iconic('terminal') + 'Import from Server', fn: upload.start.server },
+		/*{ title: build.iconic('dropbox', 'ionicons') + 'Import from Dropbox', fn: upload.start.dropbox },
+		{ title: build.iconic('terminal') + 'Import from Server', fn: upload.start.server },*/
 		{ },
 		{ title: build.iconic('folder') + 'New Album', fn: album.add }
 	]
@@ -25,14 +25,14 @@ contextMenu.add = function(e) {
 contextMenu.settings = function(e) {
 
 	let items = [
-		{ title: build.iconic('person') + 'Change Login', fn: settings.setLogin },
+		/*{ title: build.iconic('person') + 'Change Login', fn: settings.setLogin },
 		{ title: build.iconic('sort-ascending') + 'Change Sorting', fn: settings.setSorting },
 		{ title: build.iconic('dropbox', 'ionicons') + 'Set Dropbox', fn: settings.setDropboxKey },
 		{ },
 		{ title: build.iconic('info') + 'About Lychee', fn: () => window.open(lychee.website) },
 		{ title: build.iconic('wrench') + 'Diagnostics', fn: () => window.open('plugins/Diagnostics/') },
 		{ title: build.iconic('align-left') + 'Show Log', fn: () => window.open('plugins/Log/') },
-		{ },
+		{ },*/
 		{ title: build.iconic('account-logout') + 'Sign Out', fn: lychee.logout }
 	]
 
