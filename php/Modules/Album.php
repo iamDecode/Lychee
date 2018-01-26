@@ -71,6 +71,7 @@ final class Album {
 		if (isset($data['downloadable'])) $album['downloadable'] = $data['downloadable'];
 
 		// Parse date
+		date_default_timezone_set('Europe/Amsterdam');
 		$album['sysdate'] = strftime('%B %Y', $data['sysstamp']);
 
 		// Parse password
