@@ -114,8 +114,10 @@ lychee.loginDialog = function() {
 	              <input class='text' name='username' autocomplete='username' type='text' placeholder='username' autocapitalize='off' autocorrect='off'>
 	              <input class='text' name='password' autocomplete='current-password' type='password' placeholder='password'>
 	          </p>
-	          <p class='version'>Lychee $${ lychee.version }<span> &#8211; <a target='_blank' href='$${ lychee.updateURL }'>Update available!</a><span></p>
+	          <p class='version'><span> &#8211;<a target='_blank' href='$${ lychee.updateURL }'>Update available!</a><span></p>
 	          `
+	          /* CUSTOM: <p class='version'>Lychee $${ lychee.version }<span> &#8211; <a target='_blank' href='$${ lychee.updateURL }'>Update available!</a><span></p>
+	          `*/
 
 	basicModal.show({
 		body: msg,
