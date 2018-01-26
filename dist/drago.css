@@ -121,3 +121,17 @@ header.header .button:hover .iconic {
 .basicModal__button#basicModal__action {
 	color: #eabb00;
 }
+
+div.sidebar {
+	-webkit-backdrop-filter: blur(15px);
+	backdrop-filter: blur(15px);
+	background: rgba(40,40,40,0.7);
+}
+
+#imageview.fadeOut + div.sidebar {
+	background: rgba(244, 244, 244, 0.8);
+}
+
+#imageview.fadeOut + div.sidebar table tr td, #imageview.fadeOut + div.sidebar h1 {
+	color: #000;
+}
