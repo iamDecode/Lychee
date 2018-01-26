@@ -86,7 +86,7 @@ upload.start = {
 
 			formData.append('function', 'Photo::add')
 			formData.append('albumID', albumID)
-			formData.append(0, file)
+			formData.append(0, file.blob, file.name)
 
 			xhr.open('POST', api.path)
 
@@ -230,12 +230,83 @@ upload.start = {
 
 		window.onbeforeunload = function() { return 'Lychee is currently uploading!' }
 
-		upload.show('Uploading', files, function() {
+		// BEGIN CUSTOM
+		var promises = [];
 
-			// Upload first file
-			process(files, files[0])
+		for (let i = 0; i < files.length; i++) {
+			promises.push(new Promise(function(resolve, reject){
+                ImageTools.resize(files[i], {
+                    width: 2000, // maximum width
+                    height: 2000 // maximum height
+                }, function(blob, didItResize) {
+                    // Convert blob back to file
+                    var file = {
+                    	blob: files[i],
+                    	type: files[i].type,
+                    	name: files[i].name,
+                    	num: files[i].num,
+                		ready: files[i].ready,
+                		next: null // TODO: `next` is not set.
+                    };
 
-		})
+                    if (didItResize){
+                    	Promise.all(
+                    	[
+	                    	new Promise(function(res, rej){
+		                    	var reader = new FileReader();
+		                    	reader.onloadend = function(e){
+						            res(e.target.result);
+						        };
+						        reader.readAsDataURL(files[i]);
+						    }),
+
+						    new Promise(function(res, rej){
+		                    	var reader = new FileReader();
+		                    	reader.onloadend = function(e){
+						            res(e.target.result);
+						        };
+						        reader.readAsDataURL(blob);
+						    })
+					    ]).then(function(hashes){
+					    	// Restore EXIF information and convert back to Blob
+					    	var restoredExif = ExifRestorer.restore(hashes[0], hashes[1]);
+					    	var byteCharacters = atob(restoredExif);
+					    	var byteNumbers = new Array(byteCharacters.length);
+							for (var i = 0; i < byteCharacters.length; i++) {
+							    byteNumbers[i] = byteCharacters.charCodeAt(i);
+							}
+					    	var byteArray = new Uint8Array(byteNumbers);
+					    	var blob = new Blob([byteArray]);
+
+					    	file.blob = blob;
+					    	resolve(file);
+					    });
+
+                    	
+                	} else {
+                    	resolve(file);
+                    }
+                });
+            }));
+		}
+
+		Promise.all(promises).then(function(resizedFiles){
+            upload.show('Uploading', resizedFiles, function() {
+				
+				// Upload first file
+				process(resizedFiles, resizedFiles[0])
+			
+			})
+        })
+
+		// END CUSTOM
+
+		// upload.show('Uploading', files, function() {
+
+		// 	// Upload first file
+		// 	process(files, files[0])
+
+		// })
 
 	},
 
