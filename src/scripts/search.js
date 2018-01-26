@@ -9,10 +9,11 @@ search = {
 }
 
 search.find = function(term) {
-
 	clearTimeout($(window).data('timeout'))
-
+	if (term.length < 3 && term != "") return; 
+	
 	$(window).data('timeout', setTimeout(function() {
+		if (term.length < 3 && term != "") return; 
 
 		if (header.dom('.header__search').val().length!==0) {
 
