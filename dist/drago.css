@@ -83,6 +83,7 @@ header.header .button:hover .iconic {
 	transform: rotate(10deg);
 	-ms-transform: rotate(10deg);
 	-webkit-transform: rotate(10deg);
+	pointer-events: none;
 }
 
 #imageview .arrow_wrapper a {
@@ -128,10 +129,11 @@ div.sidebar {
 	background: rgba(40,40,40,0.7);
 }
 
-#imageview.fadeOut + div.sidebar {
+#imageview:not(.fadeIn) + div.sidebar {
 	background: rgba(244, 244, 244, 0.8);
 }
 
-#imageview.fadeOut + div.sidebar table tr td, #imageview.fadeOut + div.sidebar h1 {
+#imageview:not(.fadeIn) + div.sidebar table tr td, 
+#imageview:not(.fadeIn) + div.sidebar h1 {
 	color: #000;
 }
