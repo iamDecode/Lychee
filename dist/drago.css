@@ -142,3 +142,7 @@ div.sidebar {
 #imageview:not(.fadeIn) + div.sidebar h1 {
 	color: #000;
 }
+
+#imageview:not(.fadeIn) + div.sidebar .iconic {
+	fill: #000;
+}
