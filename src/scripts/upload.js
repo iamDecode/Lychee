@@ -291,6 +291,16 @@ upload.start = {
 		}
 
 		Promise.all(promises).then(function(resizedFiles){
+			// Restore next property
+			for (let i = 0; i < resizedFiles.length; i++) {
+
+				resizedFiles[i].num   = i
+                
+				if (i < resizedFiles.length-1) resizedFiles[i].next = resizedFiles[i + 1]
+				else                           resizedFiles[i].next = null
+
+			}
+
             upload.show('Uploading', resizedFiles, function() {
 				
 				// Upload first file
