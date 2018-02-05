@@ -23,7 +23,12 @@ body {
 }
 
 .content .album.active img, .content .album:hover img, .content .photo.active, .content .photo:hover {
+	outline-color: #eabb00;
 	border-color: #eabb00;
+}
+
+.content .album.active img:last-of-type {
+	outline-width: 3px;
 }
 
 header.header {
